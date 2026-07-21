@@ -1,0 +1,67 @@
+Compliance audit checklist for boundary integrity
+Use this as a periodic audit (e.g., quarterly) across org + device domains.
+
+A. Governance & Ownership
+Ownership map:
+
+Check: Is there a current, documented map of domains of control, influence, and concern for all teams and systems?
+
+Authority alignment:
+
+Check: Do actors making decisions have formal authority over the affected domain?
+
+Shadow ownership:
+
+Check: Are there processes effectively owned by individuals/teams without explicit assignment?
+
+B. Signal Provenance & Routing
+Provenance completeness:
+
+Check: Do all signals (alerts, metrics, commands) carry source, domain, actorId, and intent?
+
+Routing correctness:
+
+Check: Are actionable signals only delivered to actors with authority to act?
+
+Cross‑domain routing:
+
+Check: Are cross‑domain signals mediated by a defined interface (router/firewall), not direct ad‑hoc wiring?
+
+C. Namespace & Configuration Integrity
+Log segregation:
+
+Check: Are logs and telemetry segregated by device/namespace with clear identifiers?
+
+Config scoping:
+
+Check: Are configuration files scoped to specific devices/services, with no unintended shared configs?
+
+Automation boundaries:
+
+Check: Do automation scripts declare and enforce their domain of effect?
+
+D. Feedback Loop Design
+Loop mapping:
+
+Check: Are major feedback loops (alerts → actions → metrics) documented with owner and domain?
+
+Cross‑domain loops:
+
+Check: Are any loops crossing domains explicitly designed, with contracts and safeguards?
+
+Misalignment incidents:
+
+Check: Have there been cases where corrective actions in one domain degraded another? Are they logged and analyzed?
+
+E. Drift‑Prevention Controls
+Change review:
+
+Check: Do integration changes undergo boundary impact assessment (who gains/loses clarity)?
+
+Incident learning:
+
+Check: Are boundary‑related incidents feeding back into standards and architecture updates?
+
+Periodic re‑segmentation:
+
+Check: Is there a scheduled review to re‑segment domains as the system evolves?
