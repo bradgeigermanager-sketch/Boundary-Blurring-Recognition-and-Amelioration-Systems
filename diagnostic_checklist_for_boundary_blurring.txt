@@ -1,0 +1,53 @@
+Diagnostic Checklist for Boundary Blurring  
+### Purpose  
+A universal checklist you can apply to **any organization, device ecosystem, or hybrid socio‑technical system** to detect boundary blurring early.
+
+---
+
+## A. Ownership & Responsibility  
+- Are multiple actors claiming ownership of the same process?  
+- Are decisions being made at the wrong layer (strategic vs operational)?  
+- Are individuals or teams acting on issues they do not control?  
+- Are “shadow owners” emerging without formal authority?
+
+**If yes:** Responsibility drift is present.
+
+---
+
+## B. Signal Provenance  
+- Do signals lack clear source identifiers?  
+- Are external device signals treated as internal organizational signals?  
+- Are metrics from one domain used to evaluate another?  
+- Are alerts routed to actors who cannot act on them?
+
+**If yes:** Signal contamination is present.
+
+---
+
+## C. Causal Chain Integrity  
+- Do root‑cause analyses frequently point to the wrong actor or device?  
+- Are external events interpreted as internal failures?  
+- Do device behaviors get misattributed to human decisions (or vice versa)?  
+- Are shared infrastructures causing cross‑device misdiagnosis?
+
+**If yes:** Causal chain corruption is present.
+
+---
+
+## D. Namespace & Identity  
+- Are logs merged without device or team identifiers?  
+- Are configuration files shared across domains without scoping?  
+- Are automation scripts affecting multiple devices unintentionally?  
+- Are organizational units reacting to device activity they do not own?
+
+**If yes:** Namespace collision is present.
+
+---
+
+## E. Feedback Loop Alignment  
+- Do corrective actions in one domain worsen metrics in another?  
+- Do devices trigger workflows in unrelated organizational units?  
+- Do organizational responses treat external noise as internal feedback?  
+- Are cross‑domain loops present without explicit design?
+
+**If yes:** Feedback loop misalignment is present.
