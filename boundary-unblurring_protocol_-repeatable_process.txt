@@ -1,0 +1,62 @@
+Boundary‑Unblurring Protocol (Repeatable Process)  
+### Purpose  
+A **step‑by‑step operational protocol** you can deploy in any system to restore clarity, provenance, and domain separation.
+
+---
+
+## Phase 1 — Identification  
+1. **Collect all signals** (logs, metrics, alerts, decisions).  
+2. **Tag each signal** with:  
+   - Source (actor/device)  
+   - Intent  
+   - Target  
+   - Authority to act  
+3. **Map all feedback loops** across organizational and device domains.  
+4. **Identify cross‑domain contamination** using the diagnostic checklist.
+
+---
+
+## Phase 2 — Segmentation  
+5. **Rebuild namespaces**:  
+   - Separate logs  
+   - Separate telemetry  
+   - Separate configuration files  
+   - Separate automation triggers  
+6. **Reassign ownership** using a Responsibility Matrix:  
+   - Domain of control  
+   - Domain of influence  
+   - Domain of concern  
+7. **Isolate layers** (policy → strategy → operations → execution).
+
+---
+
+## Phase 3 — Provenance Enforcement  
+8. **Attach provenance metadata** to every signal:  
+   - Device ID  
+   - Process ID  
+   - Timestamp  
+   - Expected consumer  
+9. **Route signals through a firewall layer**:  
+   - Actionable signals → owning team  
+   - Informational signals → observers  
+10. **Enforce scoping** on commands and automation scripts.
+
+---
+
+## Phase 4 — Causal Reconstruction  
+11. For each confusing event:  
+   - Identify initiating actor/device  
+   - Trace propagation path  
+   - Identify unintended boundary crossings  
+   - Rebuild the correct causal chain  
+12. **Correct misattributions** in documentation and dashboards.
+
+---
+
+## Phase 5 — Reintegration  
+13. **Rebuild cross‑domain interfaces** with explicit contracts:  
+   - What devices can trigger in org units  
+   - What org units can trigger in devices  
+   - What signals must be ignored  
+14. **Re‑align feedback loops** so each domain responds only to its own signals.  
+15. **Audit the system** using the diagnostic checklist monthly.
