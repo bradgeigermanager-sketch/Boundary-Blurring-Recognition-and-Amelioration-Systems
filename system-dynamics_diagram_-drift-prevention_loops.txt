@@ -1,0 +1,54 @@
+Systems‑dynamics diagram (drift‑prevention loops)
+Textual causal‑loop diagram, focusing on boundary integrity:
+
+Key stocks
+Boundary Clarity: degree to which domains, ownership, and namespaces are well defined.
+
+Signal Provenance Quality: completeness and correctness of origin metadata.
+
+Feedback Loop Alignment: proportion of loops confined to their proper domain.
+
+Drift Pressure: cumulative forces pushing toward boundary blurring (complexity, ad‑hoc integrations).
+
+Main loops
+R1 – Provenance Reinforcement (balancing drift)
+
+Boundary Clarity ↑ → Provenance Standards Adoption ↑
+
+Provenance Standards Adoption ↑ → Signal Provenance Quality ↑
+
+Signal Provenance Quality ↑ → Correct Routing ↑
+
+Correct Routing ↑ → Feedback Loop Alignment ↑
+
+Feedback Loop Alignment ↑ → Boundary Clarity ↑
+
+This loop stabilizes the system: better provenance improves routing, which reinforces clear boundaries.
+
+B1 – Drift Detection & Correction (balancing)
+
+Drift Pressure ↑ → Boundary Incidents ↑
+
+Boundary Incidents ↑ → Drift Detection ↑
+
+Drift Detection ↑ → Correction Actions ↑
+
+Correction Actions ↑ → Boundary Clarity ↑
+
+Boundary Clarity ↑ → Drift Pressure ↓
+
+Incidents trigger detection and correction, which restore clarity and reduce future drift.
+
+R2 – Complexity‑Driven Drift (reinforcing, to be constrained)
+
+System Complexity ↑ → Ad‑hoc Integrations ↑
+
+Ad‑hoc Integrations ↑ → Unmapped Cross‑Domain Loops ↑
+
+Unmapped Cross‑Domain Loops ↑ → Boundary Blurring ↑
+
+Boundary Blurring ↑ → Diagnostic Confusion ↑
+
+Diagnostic Confusion ↑ → More Ad‑hoc Fixes ↑
+
+This loop drives drift; the protocol and router aim to break it by enforcing mapping and provenance.
