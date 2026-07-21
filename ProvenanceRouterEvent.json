@@ -1,0 +1,133 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/provenance-router.json",
+  "title": "ProvenanceRouterEvent",
+  "type": "object",
+  "required": [
+    "eventId",
+    "timestamp",
+    "source",
+    "signal",
+    "routing",
+    "provenance"
+  ],
+  "properties": {
+    "eventId": {
+      "type": "string",
+      "description": "Globally unique identifier for the event."
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when the event was generated."
+    },
+    "source": {
+      "type": "object",
+      "required": ["domain", "actorType", "actorId"],
+      "properties": {
+        "domain": {
+          "type": "string",
+          "enum": ["organizational", "device", "infrastructure", "external"],
+          "description": "High-level origin domain."
+        },
+        "actorType": {
+          "type": "string",
+          "description": "Type of actor (team, service, device, user, process)."
+        },
+        "actorId": {
+          "type": "string",
+          "description": "Unique identifier of the actor within its domain."
+        },
+        "layer": {
+          "type": "string",
+          "enum": ["policy", "strategy", "operations", "execution"],
+          "description": "Organizational layer, if applicable."
+        }
+      }
+    },
+    "signal": {
+      "type": "object",
+      "required": ["category", "severity", "intent"],
+      "properties": {
+        "category": {
+          "type": "string",
+          "description": "Type of signal (alert, metric, log, command, event)."
+        },
+        "severity": {
+          "type": "string",
+          "enum": ["info", "low", "medium", "high", "critical"],
+          "description": "Impact level of the signal."
+        },
+        "intent": {
+          "type": "string",
+          "enum": ["actionable", "informational", "diagnostic", "test"],
+          "description": "Intended use of the signal."
+        },
+        "payload": {
+          "type": "object",
+          "description": "Opaque payload; validated by downstream consumers."
+        }
+      }
+    },
+    "routing": {
+      "type": "object",
+      "required": ["targetDomain", "targetActorId", "authorityToAct"],
+      "properties": {
+        "targetDomain": {
+          "type": "string",
+          "enum": ["organizational", "device", "infrastructure", "external"],
+          "description": "Domain the signal is routed to."
+        },
+        "targetActorId": {
+          "type": "string",
+          "description": "Identifier of the intended consumer."
+        },
+        "authorityToAct": {
+          "type": "boolean",
+          "description": "Whether the target is authorized to act on this signal."
+        },
+        "constraints": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Scope or boundary constraints for handling this signal."
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["path", "originalSource"],
+      "properties": {
+        "originalSource": {
+          "type": "object",
+          "required": ["domain", "actorId"],
+          "properties": {
+            "domain": { "type": "string" },
+            "actorId": { "type": "string" }
+          }
+        },
+        "path": {
+          "type": "array",
+          "description": "Ordered hops the signal has traversed.",
+          "items": {
+            "type": "object",
+            "required": ["via", "timestamp"],
+            "properties": {
+              "via": {
+                "type": "string",
+                "description": "Router, service, or interface that forwarded the signal."
+              },
+              "timestamp": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          }
+        },
+        "correlationId": {
+          "type": "string",
+          "description": "ID linking related events across domains."
+        }
+      }
+    }
+  }
+}
