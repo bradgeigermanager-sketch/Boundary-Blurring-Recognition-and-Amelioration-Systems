@@ -1,0 +1,73 @@
+Hybrid Architecture Diagram  
+### Purpose  
+A conceptual diagram showing how organizational and device boundaries should interlock without contamination.
+
+Below is a **text‑based architecture diagram** suitable for system design documents.
+
+---
+
+```
+                        ┌──────────────────────────────────────────┐
+                        │        ORGANIZATIONAL DOMAIN             │
+                        │------------------------------------------│
+                        │  Policy Layer (WHY)                      │
+                        │  Strategy Layer (WHAT)                   │
+                        │  Operations Layer (HOW)                  │
+                        │  Execution Layer (DO)                    │
+                        └──────────────────────────────────────────┘
+                                      ▲
+                                      │
+                                      │  Organizational Signal Firewall
+                                      │  (routes only relevant signals)
+                                      ▼
+┌──────────────────────────────────────────────────────────────────────────┐
+│                         HYBRID INTERFACE LAYER                           │
+│--------------------------------------------------------------------------│
+│  • Provenance Router                                                     │
+│  • Signal Tagger (source, intent, target, authority)                     │
+│  • Domain Contract Engine                                                │
+│  • Feedback Loop Gatekeeper                                              │
+│--------------------------------------------------------------------------│
+│  Ensures:                                                                │
+│    - Device signals → correct org unit                                   │
+│    - Org commands → correct device                                       │
+│    - No cross-domain loops without explicit design                       │
+└──────────────────────────────────────────────────────────────────────────┘
+                                      ▲
+                                      │
+                                      │  Device Signal Firewall
+                                      │  (prevents org noise from entering)
+                                      ▼
+                        ┌──────────────────────────────────────────┐
+                        │           DEVICE / SYSTEM DOMAIN         │
+                        │------------------------------------------│
+                        │  Device Namespace A                      │
+                        │     - Logs                               │
+                        │     - Telemetry                          │
+                        │     - Config                             │
+                        │     - Automation                         │
+                        │                                          │
+                        │  Device Namespace B                      │
+                        │     - Logs                               │
+                        │     - Telemetry                          │
+                        │     - Config                             │
+                        │     - Automation                         │
+                        │                                          │
+                        │  Shared Infrastructure (scoped)          │
+                        └──────────────────────────────────────────┘
+```
+
+---
+
+# The Non‑Obvious Insight  
+The hybrid architecture works because it **forces provenance to be explicit**.  
+Boundary blurring is never about too much activity—it’s about activity with **unclear origin**.
+
+Once origin is restored:
+
+- Organizational intent becomes legible  
+- Device behavior becomes predictable  
+- Feedback loops become stable  
+- Cross‑domain interactions become safe  
+
+This is the foundation of any anomaly‑resistant system.
